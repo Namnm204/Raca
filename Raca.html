@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Xin Chào</title>
+    <style>
+      /* CSS cho popup */
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 150px;
+        padding: 20px;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        border-radius: 10px;
+        display: none; /* Ẩn mặc định */
+        z-index: 1000;
+      }
+
+      .popup button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .popup button:hover {
+        background: #0056b3;
+      }
+
+      /* Lớp phủ nền mờ */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }
+      body {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div {
+        width: 95%;
+        margin: auto;
+        padding: 5px 0;
+        height: 100vh; /* 100% chiều cao màn hình */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Căn chỉnh hình ảnh cho đẹp */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nền mờ -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+      <h2>Xin chào bạn!</h2>
+      <p>Chào mừng bạn đến với trang web của chúng tôi.</p>
+      <button onclick="closePopup()">Đóng</button>
+    </div>
+
+    <div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMncHqWGE252iRAykGA-n9OvOtAFJVoIkY8A&s"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMncHqWGE252iRAykGA-n9OvOtAFJVoIkY8A&s"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMncHqWGE252iRAykGA-n9OvOtAFJVoIkY8A&s"
+        alt=""
+      />
+    </div>
+
+    <script>
+      // Hàm hiển thị popup sau 5 giây
+      window.onload = function () {
+        setTimeout(function () {
+          document.getElementById("popup").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+        }, 1000);
+      };
+
+      // Hàm đóng popup
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
+
+      // Đóng popup khi click vào overlay (nền mờ)
+      document.getElementById("overlay").addEventListener("click", closePopup);
+    </script>
+  </body>
+</html>
